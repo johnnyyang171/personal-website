@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Four Years on the Fairway</title>
+  <meta name="description" content="A four-year golf journey through six Southern California courses." />
+  <style>
+    :root {
+      --ink: #16201d;
+      --ink-soft: #32403a;
+      --cream: #f4f0e8;
+      --paper: #fbfaf6;
+      --line: #d7d8ce;
+      --lime: #c8e66a;
+      --lime-deep: #91b347;
+      --muted: #748079;
+      --white: #fffefa;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+
+    .topbar { background: var(--ink); color: var(--cream); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; min-height: 38px; }
+    .topbar b { color: var(--lime); font-weight: 800; }
+
+    header { background: var(--cream); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 78px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.04em; font-size: 18px; }
+    .brand-mark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--lime); font-size: 16px; }
+    .nav-links { display: flex; gap: 30px; color: var(--ink-soft); font-size: 13px; font-weight: 700; }
+    .nav-links a:hover { color: var(--lime-deep); }
+    .nav-cta { border-bottom: 2px solid var(--ink); padding-bottom: 4px; }
+
+    .hero { position: relative; overflow: hidden; min-height: 640px; display: flex; align-items: end; color: var(--white); background: linear-gradient(90deg, rgba(11,20,17,.9) 0%, rgba(11,20,17,.53) 48%, rgba(11,20,17,.12) 100%), url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=2200&q=85') center/cover; }
+    .hero::after { content: ''; position: absolute; inset: auto 0 0; height: 28%; background: linear-gradient(transparent, rgba(10,19,16,.35)); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; padding: 78px 0 74px; width: min(760px, 100%); }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--lime); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 800; }
+    .eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--lime); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font: 600 clamp(58px, 9vw, 112px)/.88 var(--serif); letter-spacing: -.07em; max-width: 780px; margin: 24px 0 28px; }
+    .hero-copy { max-width: 520px; color: #e4e8dd; font-size: 17px; line-height: 1.65; }
+    .hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.3); }
+    .meta-item { display: grid; gap: 5px; }
+    .meta-item strong { color: var(--lime); font-size: 25px; letter-spacing: -.06em; }
+    .meta-item span { color: #d5ddd3; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+
+    .section { padding: 110px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 48px; }
+    .section-kicker { color: var(--lime-deep); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 900; margin-bottom: 14px; }
+    h2 { font: 600 clamp(44px, 6vw, 72px)/.94 var(--serif); letter-spacing: -.06em; max-width: 560px; margin-bottom: 0; }
+    .section-intro { max-width: 370px; color: var(--muted); line-height: 1.65; margin-bottom: 5px; }
+
+    .journey { background: var(--cream); }
+    .timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+    .timeline::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 3px; background: var(--lime-deep); transform: scaleX(.72); transform-origin: left; }
+    .chapter { min-height: 250px; padding: 30px 28px 20px 0; border-right: 1px solid var(--line); }
+    .chapter:not(:first-child) { padding-left: 28px; }
+    .chapter:last-child { border-right: 0; }
+    .chapter-year { font-size: 12px; font-weight: 900; letter-spacing: .14em; color: var(--lime-deep); text-transform: uppercase; }
+    .chapter h3 { font: 600 30px/1 var(--serif); margin: 24px 0 14px; letter-spacing: -.04em; }
+    .chapter p { color: var(--muted); line-height: 1.6; font-size: 14px; max-width: 210px; margin-bottom: 24px; }
+    .chapter-tag { color: var(--ink); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; }
+
+    .courses { background: var(--paper); }
+    .course-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; }
+    .course-card { grid-column: span 4; min-height: 490px; background: var(--white); border: 1px solid var(--line); display: flex; flex-direction: column; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
+    .course-card:hover { transform: translateY(-6px); box-shadow: 0 18px 35px rgba(22,32,29,.1); }
+    .course-card.wide { grid-column: span 6; min-height: 450px; }
+    .course-photo { height: 230px; position: relative; background-position: center; background-size: cover; }
+    .course-card.wide .course-photo { height: 260px; }
+    .course-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,26,20,.15), transparent 45%, rgba(15,26,20,.5)); }
+    .course-number { position: absolute; z-index: 1; top: 16px; left: 16px; display: grid; place-items: center; width: 34px; height: 34px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 900; }
+    .course-type { position: absolute; z-index: 1; right: 16px; bottom: 16px; color: white; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    .course-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+    .course-location { color: var(--lime-deep); font-size: 11px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    .course-body h3 { font: 600 35px/.95 var(--serif); letter-spacing: -.05em; margin: 12px 0 13px; }
+    .course-body p { color: var(--muted); font-size: 14px; line-height: 1.65; margin-bottom: 22px; }
+    .course-note { border-top: 1px solid var(--line); padding-top: 15px; color: var(--ink-soft); font-size: 12px; font-weight: 700; margin-top: auto; }
+    .course-note span { color: var(--muted); font-weight: 500; }
+
+    .layouts { background: var(--cream); }
+    .layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .layout-card { background: var(--paper); border: 1px solid var(--line); padding: 22px; }
+    .layout-card h3 { font: 600 29px/.95 var(--serif); letter-spacing: -.04em; margin: 18px 0 7px; }
+    .layout-meta { color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+    .scorecard-top { display: flex; align-items: end; justify-content: space-between; gap: 18px; border-bottom: 1px solid var(--line); padding-bottom: 15px; }
+    .scorecard-stat strong { display: block; color: var(--lime-deep); font: 700 30px/.9 var(--serif); letter-spacing: -.04em; }
+    .scorecard-stat span { color: var(--muted); font-size: 10px; letter-spacing: .11em; text-transform: uppercase; }
+    .scorecard-table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 11px; }
+    .scorecard-table th, .scorecard-table td { min-width: 28px; padding: 8px 4px; text-align: center; border-bottom: 1px solid var(--line); }
+    .scorecard-table th:first-child, .scorecard-table td:first-child { text-align: left; color: var(--muted); font-weight: 800; }
+    .scorecard-table th { color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .scorecard-table .par-row td { color: var(--ink); font-weight: 900; background: rgba(200,230,106,.18); }
+    .scorecard-table .yard-row td { color: var(--ink-soft); }
+    .scorecard-link { display: inline-flex; margin-top: 18px; color: var(--lime-deep); font: 900 11px var(--sans); letter-spacing: .1em; text-transform: uppercase; background: transparent; border: 0; border-bottom: 2px solid var(--lime-deep); padding: 0 0 5px; cursor: pointer; }
+    .source-note { margin-top: 36px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+    .layout-modal { position: fixed; inset: 0; z-index: 10; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(10,18,15,.7); }
+    .layout-modal.is-open { display: flex; }
+    .layout-dialog { position: relative; width: min(900px, 100%); max-height: min(760px, 92vh); overflow: auto; background: var(--paper); border: 1px solid rgba(255,255,255,.25); box-shadow: 0 28px 80px rgba(0,0,0,.3); }
+    .layout-dialog-head { display: flex; justify-content: space-between; gap: 25px; align-items: start; padding: 28px 30px 22px; background: var(--ink); color: var(--cream); }
+    .layout-dialog-head h2 { color: var(--cream); font-size: clamp(38px, 5vw, 62px); }
+    .layout-dialog-head .section-kicker { color: var(--lime); margin-bottom: 12px; }
+    .modal-close { border: 1px solid #5a685e; background: transparent; color: var(--lime); width: 38px; height: 38px; font-size: 24px; cursor: pointer; }
+    .modal-close:hover { background: var(--lime); color: var(--ink); }
+    .layout-dialog-body { padding: 26px 30px 30px; }
+    .layout-canvas { position: relative; min-height: 310px; overflow: hidden; background: #e7e4d6; border: 1px solid #d0cdbd; }
+    .layout-canvas::before { content: ''; position: absolute; inset: 0; opacity: .3; background-image: linear-gradient(34deg, transparent 48%, rgba(255,255,255,.9) 49%, transparent 51%), linear-gradient(-28deg, transparent 48%, rgba(255,255,255,.55) 49%, transparent 51%); background-size: 68px 52px, 91px 76px; }
+    .layout-reference-image { display: none; position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; object-fit: contain; padding: 10px 112px 10px 10px; background: #f5f4ec; }
+    .layout-canvas.arcadia-mode .layout-reference-image { display: block; }
+    .layout-canvas.arcadia-mode::before, .layout-canvas.arcadia-mode > .fairway, .layout-canvas.arcadia-mode > .map-water, .layout-canvas.arcadia-mode > .map-bunker, .layout-canvas.arcadia-mode > .map-powerline, .layout-canvas.arcadia-mode > .map-tree, .layout-canvas.arcadia-mode > .tee-pin, .layout-canvas.arcadia-mode > .green-pin { display: none; }
+    .layout-canvas.arcadia-mode .shop-pin { left: 57%; right: auto; top: 6%; }
+    .layout-canvas.arcadia-mode .range-pin { right: 17%; bottom: 20%; }
+    .layout-canvas.arcadia-mode .shop-label { left: 61%; right: auto; top: 1%; }
+    .layout-canvas.arcadia-mode .range-label { right: 4%; bottom: 8%; }
+    .layout-canvas .fairway { position: absolute; background: #9db96b; border: 2px solid #72914c; box-shadow: inset 0 0 0 7px rgba(192,213,135,.35); border-radius: 50%; }
+    .layout-canvas .fairway.a { width: 42%; height: 60px; left: 12%; top: 28%; transform: rotate(-15deg); }
+    .layout-canvas .fairway.b { width: 36%; height: 48px; left: 43%; top: 51%; transform: rotate(20deg); }
+    .layout-canvas .fairway.c { width: 30%; height: 43px; left: 64%; top: 25%; transform: rotate(-30deg); }
+    .layout-pin { position: absolute; z-index: 4; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: var(--paper); font-size: 16px; font-weight: 900; box-shadow: 0 5px 12px rgba(22,32,29,.18); }
+    .layout-pin.tee-pin { left: 9%; bottom: 13%; background: var(--ink); border: 4px solid var(--lime); }
+    .layout-pin.green-pin { right: 14%; top: 16%; background: var(--lime-deep); }
+    .layout-pin.shop-pin { left: 14%; top: 12%; background: #bd7d4b; }
+    .layout-pin.range-pin { right: 10%; bottom: 14%; background: #4e83a0; }
+    .map-tree { position: absolute; z-index: 4; width: 22px; height: 22px; border-radius: 50%; background: #526d45; border: 4px solid #78915c; }
+    .map-tree.t1 { left: 28%; top: 17%; } .map-tree.t2 { left: 35%; bottom: 13%; } .map-tree.t3 { right: 27%; top: 56%; } .map-tree.t4 { right: 17%; bottom: 23%; }
+    .map-water { position: absolute; z-index: 2; right: 28%; top: 14%; width: 90px; height: 55px; border-radius: 52% 48% 60% 40%; background: #8fb9b6; border: 2px solid #5e918f; }
+    .map-bunker { position: absolute; z-index: 3; left: 52%; top: 20%; width: 48px; height: 25px; border-radius: 50%; background: #d6c29d; border: 2px solid #b29d78; }
+    .map-powerline { position: absolute; z-index: 5; left: -4%; top: 68%; width: 110%; border-top: 2px dashed #59615c; transform: rotate(-7deg); }
+    .facility-label { position: absolute; z-index: 6; padding: 5px 7px; background: rgba(251,250,246,.9); color: var(--ink-soft); font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .facility-label.shop-label { left: 18%; top: 8%; } .facility-label.range-label { right: 15%; bottom: 7%; }
+    .layout-legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 22px 0 0; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+    .legend-item { display: inline-flex; align-items: center; gap: 7px; }
+    .legend-mark { display: inline-block; width: 13px; height: 13px; border-radius: 50%; background: var(--ink); }
+    .legend-mark.tree-mark { background: #526d45; border: 3px solid #78915c; } .legend-mark.water-mark { border-radius: 4px; background: #8fb9b6; } .legend-mark.shop-mark { background: #bd7d4b; } .legend-mark.range-mark { background: #4e83a0; }
+    .layout-disclaimer { margin: 18px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+    .quote { background: var(--ink); color: var(--cream); }
+    .quote-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 80px; }
+    .quote-mark { color: var(--lime); font: 100px/.65 var(--serif); }
+    blockquote { font: 500 clamp(32px, 4vw, 54px)/1.04 var(--serif); letter-spacing: -.05em; margin: -6px 0 24px; }
+    .quote-caption { color: #9eaaa0; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+    .next-tee { border-left: 1px solid #4d5a52; padding-left: 44px; }
+    .next-tee .section-kicker { color: var(--lime); }
+    .next-tee p { color: #c0c8c0; line-height: 1.7; max-width: 370px; }
+    .next-tee a { display: inline-flex; gap: 10px; align-items: center; margin-top: 10px; color: var(--lime); font-size: 13px; font-weight: 800; }
+
+    footer { padding: 28px 0; background: var(--ink); border-top: 1px solid #3c4942; color: #9eaaa0; font-size: 12px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; }
+
+    @media (max-width: 800px) {
+      .wrap { width: min(100% - 32px, 600px); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: 14px; font-size: 11px; }
+      .nav-cta { display: none; }
+      .hero { min-height: 600px; }
+      .hero-inner { padding-bottom: 55px; }
+      .section { padding: 78px 0; }
+      .section-head { display: block; margin-bottom: 34px; }
+      .section-intro { margin-top: 20px; }
+      .timeline { grid-template-columns: 1fr 1fr; gap: 0 22px; }
+      .chapter { border-right: 0; border-bottom: 1px solid var(--line); padding: 24px 0; min-height: 210px; }
+      .chapter:not(:first-child) { padding-left: 0; }
+      .chapter:nth-child(odd) { padding-right: 12px; }
+      .chapter:nth-child(even) { padding-left: 12px; }
+      .course-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .course-card, .course-card.wide { grid-column: span 1; min-height: 450px; }
+      .course-card.wide .course-photo, .course-photo { height: 190px; }
+      .course-body { padding: 19px; }
+      .course-body h3 { font-size: 29px; }
+      .layout-grid { grid-template-columns: 1fr; gap: 16px; }
+      .quote-inner { grid-template-columns: 1fr; gap: 40px; }
+      .next-tee { border-left: 0; border-top: 1px solid #4d5a52; padding: 35px 0 0; }
+    }
+    @media (max-width: 520px) {
+      h1 { font-size: 62px; }
+      .hero-copy { font-size: 15px; }
+      .hero-meta { gap: 17px; }
+      .meta-item strong { font-size: 21px; }
+      .course-grid { grid-template-columns: 1fr; }
+      .course-card, .course-card.wide { grid-column: 1; }
+      .course-card.wide .course-photo, .course-photo { height: 220px; }
+      footer .wrap { display: block; line-height: 1.7; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap topbar-inner"><span>Personal golf journal · Southern California</span><span><b>04</b> years / <b>06</b> courses</span></div></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Four Years on the Fairway home"><span class="brand-mark">⌁</span> fairway notes</a>
+      <nav class="nav-links" aria-label="Primary navigation"><a href="#story">The story</a><a href="#courses">Courses</a><a href="#layouts">Layouts</a><a class="nav-cta" href="#next">Next tee →</a></nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="eyebrow">A four-year golf journey</div>
+        <h1>Still learning<br />to play the lie.</h1>
+        <p class="hero-copy">Four years ago, I started chasing a better swing. What I found was a slower, stranger, better kind of progress — measured in saved pars, new places, and one more shot after a bad one.</p>
+        <div class="hero-meta"><div class="meta-item"><strong>2020—24</strong><span>Years on course</span></div><div class="meta-item"><strong>05</strong><span>Courses played</span></div><div class="meta-item"><strong>∞</strong><span>Shots still to take</span></div></div>
+      </div>
+    </section>
+
+    <section class="section journey" id="story">
+      <div class="wrap">
+        <div class="section-head"><div><div class="section-kicker">The long game</div><h2>Every round left a mark.</h2></div><p class="section-intro">The scorecard tells one story. The places, people, and small breakthroughs tell the one I actually remember.</p></div>
+        <div class="timeline">
+          <article class="chapter"><div class="chapter-year">Year 01 · 2020</div><h3>First contact</h3><p>Learning the language of the game — grip, stance, and why the ball never seems to listen at first.</p><div class="chapter-tag">Arcadia Par 3</div></article>
+          <article class="chapter"><div class="chapter-year">Year 02 · 2021</div><h3>Finding a rhythm</h3><p>Shorter holes, smarter targets, and the first glimpse that consistency beats a lucky shot.</p><div class="chapter-tag">Via Verde</div></article>
+          <article class="chapter"><div class="chapter-year">Year 03 · 2022</div><h3>More course, less fear</h3><p>Longer days and tougher lies. The game got bigger, and my misses got a little more useful.</p><div class="chapter-tag">Brea Creek</div></article>
+          <article class="chapter"><div class="chapter-year">Year 04 · 2023—24</div><h3>Playing the round</h3><p>Less chasing perfect, more noticing the walk, the weather, and the shot that is actually in front of me.</p><div class="chapter-tag">Santa Anita · Diamond Bar</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section courses" id="courses">
+      <div class="wrap">
+        <div class="section-head"><div><div class="section-kicker">The courses</div><h2>Six places that shaped the game.</h2></div><p class="section-intro">A little gallery of the fairways, greens, and in-between moments that made the last four years feel like a real journey.</p></div>
+        <div class="course-grid">
+          <article class="course-card wide"><div class="course-photo" style="background-image:url('https://images.unsplash.com/photo-1592919505780-303950717480?auto=format&fit=crop&w=1200&q=85')"><span class="course-number">01</span><span class="course-type">Par 3 · First swing</span></div><div class="course-body"><div class="course-location">Arcadia · California</div><h3>Arcadia Par 3</h3><p>Where the journey began: approachable holes, quick feedback, and enough room to fall in love with the feeling of a clean strike.</p><div class="course-note">The takeaway <span>— keep it simple.</span></div></div></article>
+          <article class="course-card wide"><div class="course-photo" style="background-image:url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1200&q=85')"><span class="course-number">02</span><span class="course-type">Open fairways · Patience</span></div><div class="course-body"><div class="course-location">La Verne · California</div><h3>Via Verde</h3><p>The course that taught me a round can feel generous and difficult in the same breath — especially when the wind starts talking.</p><div class="course-note">The takeaway <span>— trust the target.</span></div></div></article>
+          <article class="course-card"><div class="course-photo" style="background-image:url('https://images.unsplash.com/photo-1462196010496-4ab7d4c5f7a1?auto=format&fit=crop&w=1000&q=85')"><span class="course-number">03</span><span class="course-type">Greens · Growth</span></div><div class="course-body"><div class="course-location">Brea · California</div><h3>Brea Creek</h3><p>More course, more decisions. Brea Creek turned every approach into a chance to be a little braver.</p><div class="course-note">The takeaway <span>— commit.</span></div></div></article>
+          <article class="course-card"><div class="course-photo" style="background-image:url('https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?auto=format&fit=crop&w=1000&q=85')"><span class="course-number">04</span><span class="course-type">Long views · Perspective</span></div><div class="course-body"><div class="course-location">Arcadia · California</div><h3>Santa Anita</h3><p>A course with a little more room to think. The best shots here were usually the ones I stopped trying to force.</p><div class="course-note">The takeaway <span>— see the whole hole.</span></div></div></article>
+          <article class="course-card wide"><div class="course-photo" style="background-image:url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1200&q=85')"><span class="course-number">05</span><span class="course-type">The latest chapter</span></div><div class="course-body"><div class="course-location">Diamond Bar · California</div><h3>Diamond Bar</h3><p>The most recent marker in the story — a reminder that improvement is less a finish line than a reason to keep showing up.</p><div class="course-note">The takeaway <span>— play the next shot.</span></div></div></article>
+          <article class="course-card wide"><div class="course-photo" style="background-image:url('https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=1200&q=85')"><span class="course-number">06</span><span class="course-type">New chapter · Keep going</span></div><div class="course-body"><div class="course-location">Duarte · California</div><h3>Rancho Duarte</h3><p>A new page in the notebook — another place to test the swing, read the land, and keep building a round one shot at a time.</p><div class="course-note">The takeaway <span>— stay curious.</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section layouts" id="layouts">
+      <div class="wrap">
+        <div class="section-head"><div><div class="section-kicker">Scorecard layouts</div><h2>See the real shape of the round.</h2></div><p class="section-intro">These panels are rebuilt from public scorecard data: hole count, par, and tee yardages. Use the links to open the original scorecard or course reference.</p></div>
+        <div class="layout-grid">
+          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · all par 3s</div><h3>Arcadia Par 3</h3></div><div class="scorecard-stat"><strong>54</strong><span>par · 1,947 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr><tr class="yard-row"><td>Yds</td><td>93</td><td>101</td><td>153</td><td>102</td><td>95</td><td>82</td><td>97</td><td>111</td><td>93</td></tr></table><button class="scorecard-link layout-trigger" data-course="Arcadia Par 3" type="button">Check out the layout ↗</button></article>
+          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · parkland</div><h3>Via Verde</h3></div><div class="scorecard-stat"><strong>72</strong><span>par · 6,433 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>5</td><td>3</td><td>4</td><td>4</td><td>5</td><td>4</td><td>4</td><td>3</td></tr><tr class="yard-row"><td>Yds</td><td>355</td><td>517</td><td>197</td><td>412</td><td>368</td><td>551</td><td>359</td><td>379</td><td>170</td></tr></table><button class="scorecard-link layout-trigger" data-course="Via Verde" type="button">Check out the layout ↗</button></article>
+          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">9 holes · executive</div><h3>Brea Creek</h3></div><div class="scorecard-stat"><strong>29</strong><span>par · 1,679 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>3</td><td>3</td><td>4</td><td>3</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td></tr><tr class="yard-row"><td>Yds</td><td>125</td><td>163</td><td>325</td><td>150</td><td>335</td><td>181</td><td>141</td><td>130</td><td>129</td></tr></table><button class="scorecard-link layout-trigger" data-course="Brea Creek" type="button">Check out the layout ↗</button></article>
+          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · championship</div><h3>Santa Anita</h3></div><div class="scorecard-stat"><strong>71</strong><span>par · 6,463 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>4</td><td>5</td><td>3</td><td>4</td><td>5</td><td>4</td><td>3</td><td>5</td></tr><tr class="yard-row"><td>Yds</td><td>371</td><td>364</td><td>554</td><td>134</td><td>375</td><td>411</td><td>404</td><td>193</td><td>481</td></tr></table><button class="scorecard-link layout-trigger" data-course="Santa Anita" type="button">Check out the layout ↗</button></article>
+          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · rolling layout</div><h3>Diamond Bar</h3></div><div class="scorecard-stat"><strong>72</strong><span>par · 6,707 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>4</td><td>3</td><td>5</td><td>4</td><td>3</td><td>5</td><td>4</td><td>4</td></tr><tr class="yard-row"><td>Yds</td><td>429</td><td>379</td><td>175</td><td>546</td><td>452</td><td>139</td><td>530</td><td>392</td><td>339</td></tr></table><button class="scorecard-link layout-trigger" data-course="Diamond Bar" type="button">Check out the layout ↗</button></article>
+          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · executive</div><h3>Rancho Duarte</h3></div><div class="scorecard-stat"><strong>62</strong><span>par · blue / white tees</span></div></div><table class="scorecard-table"><tr><th>Reference</th><th>Blue</th><th>White</th></tr><tr class="par-row"><td>Course par</td><td>62</td><td>62</td></tr><tr class="yard-row"><td>Rating</td><td>54.4</td><td>53.4</td></tr><tr class="yard-row"><td>Slope</td><td>74</td><td>71</td></tr></table><button class="scorecard-link layout-trigger" data-course="Rancho Duarte" type="button">Check out the layout ↗</button></article>
+        </div>
+        <p class="source-note">Layout data is based on publicly available scorecard references, not a satellite survey. Yardages can change by tee, season, or course updates; always check the current card before playing. <a href="https://diamondbargc.com/golf-tee-times/view-scorecard/" target="_blank" rel="noreferrer">Diamond Bar official scorecard</a> · <a href="https://golfbrea.com/tee-times/" target="_blank" rel="noreferrer">Brea Creek course site</a></p>
+      </div>
+    </section>
+
+    <section class="section quote" id="next">
+      <div class="wrap quote-inner"><div><div class="quote-mark">“</div><blockquote>The best part of golf is that there is always another shot to learn from.</blockquote><div class="quote-caption">Four years in · still keeping score</div></div><div class="next-tee"><div class="section-kicker">The next tee</div><p>There are more courses ahead, more awkward swings, and hopefully a few more days where the ball does exactly what I pictured.</p><a href="#courses">Revisit the course notes <span>↗</span></a></div></div>
+    </section>
+  </main>
+
+  <div class="layout-modal" id="layoutModal" role="dialog" aria-modal="true" aria-labelledby="layoutModalTitle">
+    <div class="layout-dialog">
+      <div class="layout-dialog-head"><div><div class="section-kicker">Course plan</div><h2 id="layoutModalTitle">Course layout</h2></div><button class="modal-close" id="modalClose" type="button" aria-label="Close layout">×</button></div>
+      <div class="layout-dialog-body">
+        <div class="layout-canvas" id="layoutCanvas">
+          <img class="layout-reference-image" src="assets/arcadia-par-3-layout.png" alt="Uploaded Arcadia Par 3 course layout aerial image" />
+          <div class="fairway a"></div><div class="fairway b"></div><div class="fairway c"></div>
+          <div class="map-water"></div><div class="map-bunker"></div><div class="map-powerline"></div>
+          <div class="map-tree t1"></div><div class="map-tree t2"></div><div class="map-tree t3"></div><div class="map-tree t4"></div>
+          <div class="layout-pin tee-pin">T</div><div class="layout-pin green-pin">⚑</div><div class="layout-pin shop-pin">+</div><div class="layout-pin range-pin">↗</div>
+          <div class="facility-label shop-label">Pro shop / clubhouse</div><div class="facility-label range-label">Driving range</div>
+        </div>
+        <div class="layout-legend"><span class="legend-item"><i class="legend-mark"></i> tee / green</span><span class="legend-item"><i class="legend-mark tree-mark"></i> trees</span><span class="legend-item"><i class="legend-mark water-mark"></i> water</span><span class="legend-item"><i class="legend-mark shop-mark"></i> pro shop</span><span class="legend-item"><i class="legend-mark range-mark"></i> driving range</span></div>
+        <p class="layout-disclaimer" id="layoutModalCopy">Scorecard-derived plan with approximate facility markers. Use the club’s current signage or map for exact locations.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer><div class="wrap"><span>fairway notes / a personal golf journey</span><span>Built around the next shot.</span></div></footer>
+  <script>
+    const layoutDetails = {
+      'Arcadia Par 3': 'Short, direct par-3 routing. The pro shop / clubhouse is shown by the tee-side marker; the practice area is shown beyond the finish side.',
+      'Via Verde': 'Parkland routing with a longer par-5 rhythm. The pro shop / clubhouse sits near the start of the loop; the driving range is shown off the back side.',
+      'Brea Creek': 'Nine-hole executive routing with compact targets. The pro shop / clubhouse and range sit near the compact opening side of the plan.',
+      'Santa Anita': 'Championship routing with a traditional out-and-back feel. The overhead line is called out as a visual hazard; facility markers are approximate.',
+      'Diamond Bar': 'Rolling 18-hole routing with longer par-4s and par-5s. The facility markers show the clubhouse-side start and practice side of the property.',
+      'Rancho Duarte': 'Executive routing built around a par-62 card. The plan highlights a compact start, tree lines, and the practice-side finish.'
+    };
+    const modal = document.getElementById('layoutModal');
+    const modalTitle = document.getElementById('layoutModalTitle');
+    const modalCopy = document.getElementById('layoutModalCopy');
+    const closeModal = () => { modal.classList.remove('is-open'); document.body.style.overflow = ''; };
+    document.querySelectorAll('.layout-trigger').forEach((button) => {
+      button.addEventListener('click', () => {
+        const course = button.dataset.course;
+        document.getElementById('layoutCanvas').classList.toggle('arcadia-mode', course === 'Arcadia Par 3');
+        modalTitle.textContent = course + ' layout';
+        modalCopy.textContent = layoutDetails[course] + ' Scorecard-derived plan with approximate facility markers — use the club’s current signage or map for exact locations.';
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+  </script>
+</body>
+</html>
