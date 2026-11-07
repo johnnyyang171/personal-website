@@ -101,6 +101,20 @@
     .scorecard-table .yard-row td { color: var(--ink-soft); }
     .scorecard-link { display: inline-flex; margin-top: 18px; color: var(--lime-deep); font: 900 11px var(--sans); letter-spacing: .1em; text-transform: uppercase; background: transparent; border: 0; border-bottom: 2px solid var(--lime-deep); padding: 0 0 5px; cursor: pointer; }
     .source-note { margin-top: 36px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+    .friends { background: var(--paper); }
+    .friends-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .friend-card { display: flex; align-items: center; gap: 15px; padding: 18px; background: var(--white); border: 1px solid var(--line); }
+    .friend-initials { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; background: var(--ink); color: var(--lime); font-size: 13px; font-weight: 900; letter-spacing: .06em; }
+    .friend-card h3 { margin: 0 0 4px; font: 600 23px/1 var(--serif); letter-spacing: -.04em; }
+    .friend-card span { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .profile { background: var(--ink); color: var(--cream); }
+    .profile .section-kicker { color: var(--lime); }
+    .profile h2 { color: var(--cream); }
+    .profile-intro { max-width: 430px; color: #c3ccc3; line-height: 1.65; }
+    .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
+    .profile-stat { min-height: 150px; padding: 24px; border: 1px solid #4d5a52; background: rgba(255,255,255,.03); }
+    .profile-stat strong { display: block; color: var(--lime); font: 600 44px/.9 var(--serif); letter-spacing: -.05em; }
+    .profile-stat span { display: block; margin-top: 14px; color: #aeb9ae; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
     .layout-modal { position: fixed; inset: 0; z-index: 10; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(10,18,15,.7); }
     .layout-modal.is-open { display: flex; }
     .layout-dialog { position: relative; width: min(900px, 100%); max-height: min(760px, 92vh); overflow: auto; background: var(--paper); border: 1px solid rgba(255,255,255,.25); box-shadow: 0 28px 80px rgba(0,0,0,.3); }
@@ -175,6 +189,8 @@
       .course-body { padding: 19px; }
       .course-body h3 { font-size: 29px; }
       .layout-grid { grid-template-columns: 1fr; gap: 16px; }
+      .friends-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .profile-grid { grid-template-columns: 1fr 1fr; }
       .quote-inner { grid-template-columns: 1fr; gap: 40px; }
       .next-tee { border-left: 0; border-top: 1px solid #4d5a52; padding: 35px 0 0; }
     }
@@ -186,6 +202,8 @@
       .course-grid { grid-template-columns: 1fr; }
       .course-card, .course-card.wide { grid-column: 1; }
       .course-card.wide .course-photo, .course-photo { height: 220px; }
+      .friends-grid { grid-template-columns: 1fr; }
+      .profile-grid { grid-template-columns: 1fr; }
       footer .wrap { display: block; line-height: 1.7; }
     }
   </style>
@@ -195,7 +213,7 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Four Years on the Fairway home"><span class="brand-mark">⌁</span> fairway notes</a>
-      <nav class="nav-links" aria-label="Primary navigation"><a href="#story">The story</a><a href="#courses">Courses</a><a href="#layouts">Layouts</a><a class="nav-cta" href="#next">Next tee →</a></nav>
+      <nav class="nav-links" aria-label="Primary navigation"><a href="#story">The story</a><a href="#courses">Courses</a><a href="#layouts">Layouts</a><a href="#friends">Teammates / Friends</a><a href="#buddy">Meet your golf buddy :)</a><a class="nav-cta" href="#next">Next tee →</a></nav>
     </div>
   </header>
 
@@ -205,18 +223,18 @@
         <div class="eyebrow">A four-year golf journey</div>
         <h1>Still learning<br />to play the lie.</h1>
         <p class="hero-copy">Four years ago, I started chasing a better swing. What I found was a slower, stranger, better kind of progress — measured in saved pars, new places, and one more shot after a bad one.</p>
-        <div class="hero-meta"><div class="meta-item"><strong>2020—24</strong><span>Years on course</span></div><div class="meta-item"><strong>05</strong><span>Courses played</span></div><div class="meta-item"><strong>∞</strong><span>Shots still to take</span></div></div>
+        <div class="hero-meta"><div class="meta-item"><strong>2022—26</strong><span>Years on course</span></div><div class="meta-item"><strong>06</strong><span>Courses played</span></div><div class="meta-item"><strong>∞</strong><span>Shots still to take</span></div></div>
       </div>
     </section>
 
     <section class="section journey" id="story">
       <div class="wrap">
-        <div class="section-head"><div><div class="section-kicker">The long game</div><h2>Every round left a mark.</h2></div><p class="section-intro">The scorecard tells one story. The places, people, and small breakthroughs tell the one I actually remember.</p></div>
+        <div class="section-head"><div><div class="section-kicker">The long game</div><h2>From warm-ups to birdies.</h2></div><p class="section-intro">My journey began when my mom saw one of my friends playing golf. She got inspired and signed me up with golf coaches, where I built my progress through practice drills and warm-ups.</p></div>
         <div class="timeline">
-          <article class="chapter"><div class="chapter-year">Year 01 · 2020</div><h3>First contact</h3><p>Learning the language of the game — grip, stance, and why the ball never seems to listen at first.</p><div class="chapter-tag">Arcadia Par 3</div></article>
-          <article class="chapter"><div class="chapter-year">Year 02 · 2021</div><h3>Finding a rhythm</h3><p>Shorter holes, smarter targets, and the first glimpse that consistency beats a lucky shot.</p><div class="chapter-tag">Via Verde</div></article>
-          <article class="chapter"><div class="chapter-year">Year 03 · 2022</div><h3>More course, less fear</h3><p>Longer days and tougher lies. The game got bigger, and my misses got a little more useful.</p><div class="chapter-tag">Brea Creek</div></article>
-          <article class="chapter"><div class="chapter-year">Year 04 · 2023—24</div><h3>Playing the round</h3><p>Less chasing perfect, more noticing the walk, the weather, and the shot that is actually in front of me.</p><div class="chapter-tag">Santa Anita · Diamond Bar</div></article>
+          <article class="chapter"><div class="chapter-year">Age 7</div><h3>Santa Anita</h3><p>My coach introduced me to Santa Anita, where we putted — and then putted some more. Those early green sessions taught me touch, patience, and how much there is to learn before a full swing.</p><div class="chapter-tag">Putting practice</div></article>
+          <article class="chapter"><div class="chapter-year">Ages 8–9</div><h3>Rancho Duarte</h3><p>At Rancho Duarte, I started setting goals and chasing milestones, including my first-ever birdie and making a par on a par 4.</p><div class="chapter-tag">Goals &amp; milestones</div></article>
+          <article class="chapter"><div class="chapter-year">Every practice</div><h3>Building progress</h3><p>My coaches kept me moving with drills, warm-ups, and focused practice. We usually played for about two hours, learning how to stay patient and keep improving.</p><div class="chapter-tag">Coaching &amp; repetition</div></article>
+          <article class="chapter"><div class="chapter-year">Now</div><h3>Still showing up</h3><p>Now I play and practice for about 1½ hours. The time may be shorter, but every session still has a goal — and there is always another shot to learn from.</p><div class="chapter-tag">The next milestone</div></article>
         </div>
       </div>
     </section>
@@ -244,9 +262,38 @@
           <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">9 holes · executive</div><h3>Brea Creek</h3></div><div class="scorecard-stat"><strong>29</strong><span>par · 1,679 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>3</td><td>3</td><td>4</td><td>3</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td></tr><tr class="yard-row"><td>Yds</td><td>125</td><td>163</td><td>325</td><td>150</td><td>335</td><td>181</td><td>141</td><td>130</td><td>129</td></tr></table><button class="scorecard-link layout-trigger" data-course="Brea Creek" type="button">Check out the layout ↗</button></article>
           <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · championship</div><h3>Santa Anita</h3></div><div class="scorecard-stat"><strong>71</strong><span>par · 6,463 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>4</td><td>5</td><td>3</td><td>4</td><td>5</td><td>4</td><td>3</td><td>5</td></tr><tr class="yard-row"><td>Yds</td><td>371</td><td>364</td><td>554</td><td>134</td><td>375</td><td>411</td><td>404</td><td>193</td><td>481</td></tr></table><button class="scorecard-link layout-trigger" data-course="Santa Anita" type="button">Check out the layout ↗</button></article>
           <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · rolling layout</div><h3>Diamond Bar</h3></div><div class="scorecard-stat"><strong>72</strong><span>par · 6,707 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>4</td><td>3</td><td>5</td><td>4</td><td>3</td><td>5</td><td>4</td><td>4</td></tr><tr class="yard-row"><td>Yds</td><td>429</td><td>379</td><td>175</td><td>546</td><td>452</td><td>139</td><td>530</td><td>392</td><td>339</td></tr></table><button class="scorecard-link layout-trigger" data-course="Diamond Bar" type="button">Check out the layout ↗</button></article>
-          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · executive</div><h3>Rancho Duarte</h3></div><div class="scorecard-stat"><strong>62</strong><span>par · blue / white tees</span></div></div><table class="scorecard-table"><tr><th>Reference</th><th>Blue</th><th>White</th></tr><tr class="par-row"><td>Course par</td><td>62</td><td>62</td></tr><tr class="yard-row"><td>Rating</td><td>54.4</td><td>53.4</td></tr><tr class="yard-row"><td>Slope</td><td>74</td><td>71</td></tr></table><button class="scorecard-link layout-trigger" data-course="Rancho Duarte" type="button">Check out the layout ↗</button></article>
+          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">9 holes · executive</div><h3>Rancho Duarte</h3></div><div class="scorecard-stat"><strong>62</strong><span>par · blue / white tees</span></div></div><table class="scorecard-table"><tr><th>Reference</th><th>Blue</th><th>White</th></tr><tr class="par-row"><td>Course par</td><td>62</td><td>62</td></tr><tr class="yard-row"><td>Rating</td><td>54.4</td><td>53.4</td></tr><tr class="yard-row"><td>Slope</td><td>74</td><td>71</td></tr></table><button class="scorecard-link layout-trigger" data-course="Rancho Duarte" type="button">Check out the layout ↗</button></article>
         </div>
         <p class="source-note">Layout data is based on publicly available scorecard references, not a satellite survey. Yardages can change by tee, season, or course updates; always check the current card before playing. <a href="https://diamondbargc.com/golf-tee-times/view-scorecard/" target="_blank" rel="noreferrer">Diamond Bar official scorecard</a> · <a href="https://golfbrea.com/tee-times/" target="_blank" rel="noreferrer">Brea Creek course site</a></p>
+      </div>
+    </section>
+
+    <section class="section friends" id="friends">
+      <div class="wrap">
+        <div class="section-head"><div><div class="section-kicker">The crew</div><h2>Teammates &amp; friends who play.</h2></div><p class="section-intro">The people who make the round more fun, the misses easier to laugh about, and the next tee worth getting to.</p></div>
+        <div class="friends-grid">
+          <article class="friend-card"><div class="friend-initials">AU</div><div><h3>Audrey</h3><span>Golf crew</span></div></article>
+          <article class="friend-card"><div class="friend-initials">AA</div><div><h3>Aaron</h3><span>Golf crew</span></div></article>
+          <article class="friend-card"><div class="friend-initials">DA</div><div><h3>Daniel</h3><span>Golf crew</span></div></article>
+          <article class="friend-card"><div class="friend-initials">JO</div><div><h3>Joyce</h3><span>Golf crew</span></div></article>
+          <article class="friend-card"><div class="friend-initials">MA</div><div><h3>Marley</h3><span>Golf crew</span></div></article>
+          <article class="friend-card"><div class="friend-initials">JU</div><div><h3>Justin</h3><span>Golf crew</span></div></article>
+          <article class="friend-card"><div class="friend-initials">JA</div><div><h3>Jason</h3><span>Golf crew</span></div></article>
+          <article class="friend-card"><div class="friend-initials">KH</div><div><h3>Khalid</h3><span>Golf crew</span></div></article>
+          <article class="friend-card"><div class="friend-initials">JY</div><div><h3>Jayden</h3><span>Golf crew</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section profile" id="buddy">
+      <div class="wrap">
+        <div class="section-head"><div><div class="section-kicker">A little about me</div><h2>Meet your golf buddy :)</h2></div><p class="profile-intro">A quick snapshot of the person behind the scorecards, practice drills, and four-year golf journey.</p></div>
+        <div class="profile-grid">
+          <div class="profile-stat"><strong>March 12th</strong><span>Birthday</span></div>
+          <div class="profile-stat"><strong>10</strong><span>Age</span></div>
+          <div class="profile-stat"><strong>4 years</strong><span>Golf progress</span></div>
+          <div class="profile-stat"><strong>2022 → 2026</strong><span>Journey timeline</span></div>
+        </div>
       </div>
     </section>
 
