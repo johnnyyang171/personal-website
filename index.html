@@ -127,8 +127,15 @@
     .layout-canvas { position: relative; min-height: 310px; overflow: hidden; background: #e7e4d6; border: 1px solid #d0cdbd; }
     .layout-canvas::before { content: ''; position: absolute; inset: 0; opacity: .3; background-image: linear-gradient(34deg, transparent 48%, rgba(255,255,255,.9) 49%, transparent 51%), linear-gradient(-28deg, transparent 48%, rgba(255,255,255,.55) 49%, transparent 51%); background-size: 68px 52px, 91px 76px; }
     .layout-reference-image { display: none; position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; object-fit: contain; padding: 10px 112px 10px 10px; background: #f5f4ec; }
-    .layout-canvas.arcadia-mode .layout-reference-image { display: block; }
+    .layout-canvas.arcadia-mode .layout-reference-image { display: none; }
+    .layout-canvas.arcadia-mode .layout-reference-image:first-child { display: block; }
+    .layout-canvas.santa-anita-mode .layout-reference-image { display: none; }
+    .layout-canvas.santa-anita-mode .santa-anita-reference-image { display: block; padding: 10px; }
+    .layout-canvas.diamond-bar-mode .layout-reference-image { display: none; }
+    .layout-canvas.diamond-bar-mode .diamond-bar-reference-image { display: block; padding: 10px; }
     .layout-canvas.arcadia-mode::before, .layout-canvas.arcadia-mode > .fairway, .layout-canvas.arcadia-mode > .map-water, .layout-canvas.arcadia-mode > .map-bunker, .layout-canvas.arcadia-mode > .map-powerline, .layout-canvas.arcadia-mode > .map-tree, .layout-canvas.arcadia-mode > .tee-pin, .layout-canvas.arcadia-mode > .green-pin { display: none; }
+    .layout-canvas.santa-anita-mode::before, .layout-canvas.santa-anita-mode > .fairway, .layout-canvas.santa-anita-mode > .map-water, .layout-canvas.santa-anita-mode > .map-bunker, .layout-canvas.santa-anita-mode > .map-powerline, .layout-canvas.santa-anita-mode > .map-tree, .layout-canvas.santa-anita-mode > .tee-pin, .layout-canvas.santa-anita-mode > .green-pin { display: none; }
+    .layout-canvas.diamond-bar-mode::before, .layout-canvas.diamond-bar-mode > .fairway, .layout-canvas.diamond-bar-mode > .map-water, .layout-canvas.diamond-bar-mode > .map-bunker, .layout-canvas.diamond-bar-mode > .map-powerline, .layout-canvas.diamond-bar-mode > .map-tree, .layout-canvas.diamond-bar-mode > .tee-pin, .layout-canvas.diamond-bar-mode > .green-pin { display: none; }
     .layout-canvas.arcadia-mode .shop-pin { left: 57%; right: auto; top: 6%; }
     .layout-canvas.arcadia-mode .range-pin { right: 17%; bottom: 20%; }
     .layout-canvas.arcadia-mode .shop-label { left: 61%; right: auto; top: 1%; }
@@ -260,7 +267,7 @@
           <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · all par 3s</div><h3>Arcadia Par 3</h3></div><div class="scorecard-stat"><strong>54</strong><span>par · 1,947 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr><tr class="yard-row"><td>Yds</td><td>93</td><td>101</td><td>153</td><td>102</td><td>95</td><td>82</td><td>97</td><td>111</td><td>93</td></tr></table><button class="scorecard-link layout-trigger" data-course="Arcadia Par 3" type="button">Check out the layout ↗</button></article>
           <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · parkland</div><h3>Via Verde</h3></div><div class="scorecard-stat"><strong>72</strong><span>par · 6,433 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>5</td><td>3</td><td>4</td><td>4</td><td>5</td><td>4</td><td>4</td><td>3</td></tr><tr class="yard-row"><td>Yds</td><td>355</td><td>517</td><td>197</td><td>412</td><td>368</td><td>551</td><td>359</td><td>379</td><td>170</td></tr></table><button class="scorecard-link layout-trigger" data-course="Via Verde" type="button">Check out the layout ↗</button></article>
           <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">9 holes · executive</div><h3>Brea Creek</h3></div><div class="scorecard-stat"><strong>29</strong><span>par · 1,679 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>3</td><td>3</td><td>4</td><td>3</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td></tr><tr class="yard-row"><td>Yds</td><td>125</td><td>163</td><td>325</td><td>150</td><td>335</td><td>181</td><td>141</td><td>130</td><td>129</td></tr></table><button class="scorecard-link layout-trigger" data-course="Brea Creek" type="button">Check out the layout ↗</button></article>
-          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · championship</div><h3>Santa Anita</h3></div><div class="scorecard-stat"><strong>71</strong><span>par · 6,463 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>4</td><td>5</td><td>3</td><td>4</td><td>5</td><td>4</td><td>3</td><td>5</td></tr><tr class="yard-row"><td>Yds</td><td>371</td><td>364</td><td>554</td><td>134</td><td>375</td><td>411</td><td>404</td><td>193</td><td>481</td></tr></table><button class="scorecard-link layout-trigger" data-course="Santa Anita" type="button">Check out the layout ↗</button></article>
+          <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · championship</div><h3>Santa Anita</h3></div><div class="scorecard-stat"><strong>71</strong><span>par · 6,463 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>Total</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>4</td><td>5</td><td>3</td><td>4</td><td>4</td><td>4</td><td>3</td><td>5</td><td>4</td><td>4</td><td>3</td><td>5</td><td>4</td><td>3</td><td>4</td><td>4</td><td>4</td><td>71</td></tr><tr class="yard-row"><td>Yds</td><td>371</td><td>364</td><td>554</td><td>134</td><td>375</td><td>411</td><td>404</td><td>193</td><td>481</td><td>353</td><td>407</td><td>207</td><td>509</td><td>317</td><td>189</td><td>437</td><td>318</td><td>439</td><td>6,463</td></tr></table><button class="scorecard-link layout-trigger" data-course="Santa Anita" type="button">Check out the layout ↗</button></article>
           <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">18 holes · rolling layout</div><h3>Diamond Bar</h3></div><div class="scorecard-stat"><strong>72</strong><span>par · 6,707 yd</span></div></div><table class="scorecard-table"><tr><th>Hole</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr><tr class="par-row"><td>Par</td><td>4</td><td>4</td><td>3</td><td>5</td><td>4</td><td>3</td><td>5</td><td>4</td><td>4</td></tr><tr class="yard-row"><td>Yds</td><td>429</td><td>379</td><td>175</td><td>546</td><td>452</td><td>139</td><td>530</td><td>392</td><td>339</td></tr></table><button class="scorecard-link layout-trigger" data-course="Diamond Bar" type="button">Check out the layout ↗</button></article>
           <article class="layout-card"><div class="scorecard-top"><div><div class="layout-meta">9 holes · executive</div><h3>Rancho Duarte</h3></div><div class="scorecard-stat"><strong>62</strong><span>par · blue / white tees</span></div></div><table class="scorecard-table"><tr><th>Reference</th><th>Blue</th><th>White</th></tr><tr class="par-row"><td>Course par</td><td>62</td><td>62</td></tr><tr class="yard-row"><td>Rating</td><td>54.4</td><td>53.4</td></tr><tr class="yard-row"><td>Slope</td><td>74</td><td>71</td></tr></table><button class="scorecard-link layout-trigger" data-course="Rancho Duarte" type="button">Check out the layout ↗</button></article>
         </div>
@@ -293,7 +300,9 @@
           <div class="profile-stat"><strong>10</strong><span>Age</span></div>
           <div class="profile-stat"><strong>4 years</strong><span>Golf progress</span></div>
           <div class="profile-stat"><strong>2022 → 2026</strong><span>Journey timeline</span></div>
+          <div class="profile-stat"><strong>215 yds</strong><span>Furthest shot</span></div>
         </div>
+        <p class="profile-intro" style="margin-top: 28px;">Hi. I am a 10-year-old golfer dedicated to playing in a real PGA tournament.</p>
       </div>
     </section>
 
@@ -308,6 +317,8 @@
       <div class="layout-dialog-body">
         <div class="layout-canvas" id="layoutCanvas">
           <img class="layout-reference-image" src="assets/arcadia-par-3-layout.png" alt="Uploaded Arcadia Par 3 course layout aerial image" />
+          <img class="layout-reference-image santa-anita-reference-image" src="assets/santa-anita-layout.png" alt="Santa Anita course layout aerial image" />
+          <img class="layout-reference-image diamond-bar-reference-image" src="assets/diamond-bar-layout.png" alt="Diamond Bar course layout aerial image" />
           <div class="fairway a"></div><div class="fairway b"></div><div class="fairway c"></div>
           <div class="map-water"></div><div class="map-bunker"></div><div class="map-powerline"></div>
           <div class="map-tree t1"></div><div class="map-tree t2"></div><div class="map-tree t3"></div><div class="map-tree t4"></div>
@@ -337,7 +348,10 @@
     document.querySelectorAll('.layout-trigger').forEach((button) => {
       button.addEventListener('click', () => {
         const course = button.dataset.course;
-        document.getElementById('layoutCanvas').classList.toggle('arcadia-mode', course === 'Arcadia Par 3');
+        const layoutCanvas = document.getElementById('layoutCanvas');
+        layoutCanvas.classList.toggle('arcadia-mode', course === 'Arcadia Par 3');
+        layoutCanvas.classList.toggle('santa-anita-mode', course === 'Santa Anita');
+        layoutCanvas.classList.toggle('diamond-bar-mode', course === 'Diamond Bar');
         modalTitle.textContent = course + ' layout';
         modalCopy.textContent = layoutDetails[course] + ' Scorecard-derived plan with approximate facility markers — use the club’s current signage or map for exact locations.';
         modal.classList.add('is-open');
